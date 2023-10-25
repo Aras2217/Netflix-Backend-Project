@@ -1,0 +1,49 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block body %}
+<!-- Hero image -->
+<div class="hero-image">
+
+  <div class="hero-text">
+      <h1>Sınırsız film, dizi ve çok daha fazlası.</h1>
+      <h4>İstediğiniz yerde izleyin. İstediğiniz zaman iptal edin.</h4>
+      <p>İzlemeye hazır mısınız? Üyelik oluşturmak veya üyeliğinze erişmek için e-posta adresinizi girin</p>
+
+      <button class="btn btn-secondary btn-lg mt-3">Oynat</button>
+      <button class="btn btn-secondary btn-lg mt-3">Daha Fazla Bilgi</button>
+  </div>
+
+</div>
+
+<div class="container">
+    <div class="row mt-5">
+
+      <h3 class="text-light c-title">{{ category_title }}</h3>
+      
+
+
+
+      {% for i in movies %}
+                <div class="col-3 p-2">
+                    <div class="mb-3 post p-3">
+                        <a class="c-img" href="{% url 'indexBrowsePage2' i.title %}">
+                            <img src="{{ i.image.url }}" class="card-img-top" alt="" >
+                        </a>
+                        
+                        <a href="{% url 'create_listem_category' i.id %}" class="btn btn-primary w-100">Copy to Listeme Ekle</a>
+                    </div>
+                </div>
+                    
+            {% endfor %}
+
+    </div>
+
+    
+</div>
+{% endblock body %}
+    
+
